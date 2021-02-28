@@ -43,10 +43,9 @@ class Matrix {
         sumMatrix()
         checkRows()
         checkColumns()
-        checkAscDiagonal()Stage 3/5: What's up on the field
+        checkAscDiagonal()
         checkDescDiagonal()
         checkDoubleWiners()
-
         if (isItImposible) return "Impossible"
         if (isWinsX) return "X wins"
         if (isWinsO) return "O wins"
@@ -54,7 +53,6 @@ class Matrix {
         if (hasEmptyCells) return "Game not finished"
         return "Impossible @*&%#!!!"
     }
-
     fun sumMatrix() {
         var sum = 0
         var currentElement = 0
@@ -67,13 +65,9 @@ class Matrix {
         }
         if (sum > 1 || sum < -1) isItImposible = true
     }
-
     fun getElenent(row: Int, column: Int) = m[row][column]
-
     fun checkRow(x: Int) = getElenent(x, 0) + getElenent(x, 1) + getElenent(x, 2)
-
     fun checkColumn(y: Int) = getElenent(0, y) + getElenent(1, y) + getElenent(2, y)
-
     fun checkRows() {
         var whoseRow = 0
         for (i in 0 until x) {
@@ -82,7 +76,6 @@ class Matrix {
             if (whoseRow == -3) isWinsO = true
         }
     }
-
     fun checkColumns() {
         var whoseColumn = 0
         for (i in 0 until y) {
@@ -101,17 +94,14 @@ class Matrix {
         if (whoseDiagonal == 3 /*&& !isWinsX*/) isWinsX = true
         if (whoseDiagonal == -3/* && !isWinsO*/) isWinsO = true
     }
-
     fun checkDescDiagonal() {
         val whoseDiagonal = getElenent(0, 0) + getElenent(1, 1) + getElenent(2, 2)
         if (whoseDiagonal == 3 /*&& !isWinsX*/) isWinsX = true
         if (whoseDiagonal == -3 /*&& !isWinsO*/) isWinsO = true
     }
-
     private fun checkDoubleWiners() {
         if (isWinsX && isWinsO) isItImposible = true
     }
-
     fun printFields() {
         var output = "---------\n"
         for (y in 0..2){
@@ -128,7 +118,6 @@ class Matrix {
         output += "---------\n"
         print(output)
     }
-
     constructor (
             x: Int,
             y: Int
@@ -141,21 +130,16 @@ class Matrix {
         }
     }
 }
-
 /*    Stage 1-5 Welcome to the battlefield
     print("X O X\n" +
             "O X O\n" +
             "X X O ")
 */
-
 /*    Stage 2/5: The user is the gamemaster
-
 val scanner = Scanner(System.`in`)
 val input = scanner.next().split("")
-
 val matrix = Matrix(3,3)
 var n = 1
-
 for (y in 0..2){
     for (x in 0..2) {
         matrix.m[x][y] = when (input[n++]) {
@@ -165,7 +149,6 @@ for (y in 0..2){
         }
     }
 }
-
 var output = "---------\n"
 for (y in 0..2){
     output += "| "
@@ -179,15 +162,12 @@ for (y in 0..2){
     output += "|\n"
 }
 output += "---------"
-
 print(output)
 }
-
 class Matrix {
     var x: Int = 0
     var y: Int = 0
     val m: Array<IntArray>
-
     constructor(
             x: Int,
             y: Int
