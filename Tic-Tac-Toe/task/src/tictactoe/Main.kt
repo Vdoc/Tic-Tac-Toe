@@ -78,7 +78,6 @@ class Matrix {
             }
             print("You should enter numbers!\n")
         }
-
         addMove(x - 1, y - 1, player)
     }
 
@@ -160,18 +159,13 @@ class Matrix {
         print(output)
     }
 
-    constructor (
-            x: Int,
-            y: Int
-    ) {
+    constructor (x: Int, y: Int) {
         this.x = x
         this.y = y
         m = Array(x) { IntArray(y) }
-        for (i in 0 until x) {
-            for (j in 0 until y) m[i][j] = 0
-        }
     }
 }
+
 
 
 /*    Stage 1-5 Welcome to the battlefield
@@ -181,13 +175,10 @@ class Matrix {
 */
 
 /*    Stage 2/5: The user is the gamemaster
-
 val scanner = Scanner(System.`in`)
 val input = scanner.next().split("")
-
 val matrix = Matrix(3,3)
 var n = 1
-
 for (y in 0..2){
     for (x in 0..2) {
         matrix.m[x][y] = when (input[n++]) {
@@ -197,7 +188,6 @@ for (y in 0..2){
         }
     }
 }
-
 var output = "---------\n"
 for (y in 0..2){
     output += "| "
@@ -211,15 +201,12 @@ for (y in 0..2){
     output += "|\n"
 }
 output += "---------"
-
 print(output)
 }
-
 class Matrix {
     var x: Int = 0
     var y: Int = 0
     val m: Array<IntArray>
-
     constructor(
             x: Int,
             y: Int
@@ -239,18 +226,15 @@ class Matrix {
 
 /*
 Stage 3/5: What's up on the field?
-
 fun main() {
     val matrix = readInput()
     matrix.printFields()
     print(matrix.state())
 }
-
 fun readInput(): Matrix {
     print("Enter cells: ")
     val scanner = Scanner(System.`in`)
     val input = scanner.next().split("")
-
     val matrix = Matrix(3,3)
     var n = 1
     for (y in 0..2){
@@ -264,17 +248,14 @@ fun readInput(): Matrix {
     }
     return matrix
 }
-
 class Matrix {
     var x: Int = 0
     var y: Int = 0
     val m: Array<IntArray>
-
     var isItImposible = false
     var isWinsX = false
     var isWinsO = false
     var hasEmptyCells = false
-
     fun state(): String {
         sumMatrix()
         checkRows()
@@ -282,7 +263,6 @@ class Matrix {
         checkAscDiagonal()Stage 3/5: What's up on the field
         checkDescDiagonal()
         checkDoubleWiners()
-
         if (isItImposible) return "Impossible"
         if (isWinsX) return "X wins"
         if (isWinsO) return "O wins"
@@ -290,7 +270,6 @@ class Matrix {
         if (hasEmptyCells) return "Game not finished"
         return "Impossible @*&%#!!!"
     }
-
     fun sumMatrix() {
         var sum = 0
         var currentElement = 0
@@ -303,13 +282,9 @@ class Matrix {
         }
         if (sum > 1 || sum < -1) isItImposible = true
     }
-
     fun getElenent(row: Int, column: Int) = m[row][column]
-
     fun checkRow(x: Int) = getElenent(x, 0) + getElenent(x, 1) + getElenent(x, 2)
-
     fun checkColumn(y: Int) = getElenent(0, y) + getElenent(1, y) + getElenent(2, y)
-
     fun checkRows() {
         var whoseRow = 0
         for (i in 0 until x) {
@@ -318,7 +293,6 @@ class Matrix {
             if (whoseRow == -3) isWinsO = true
         }
     }
-
     fun checkColumns() {
         var whoseColumn = 0
         for (i in 0 until y) {
@@ -337,17 +311,14 @@ class Matrix {
         if (whoseDiagonal == 3 /*&& !isWinsX*/) isWinsX = true
         if (whoseDiagonal == -3/* && !isWinsO*/) isWinsO = true
     }
-
     fun checkDescDiagonal() {
         val whoseDiagonal = getElenent(0, 0) + getElenent(1, 1) + getElenent(2, 2)
         if (whoseDiagonal == 3 /*&& !isWinsX*/) isWinsX = true
         if (whoseDiagonal == -3 /*&& !isWinsO*/) isWinsO = true
     }
-
     private fun checkDoubleWiners() {
         if (isWinsX && isWinsO) isItImposible = true
     }
-
     fun printFields() {
         var output = "---------\n"
         for (y in 0..2){
@@ -364,7 +335,6 @@ class Matrix {
         output += "---------\n"
         print(output)
     }
-
     constructor (
             x: Int,
             y: Int
@@ -377,5 +347,4 @@ class Matrix {
         }
     }
 }
-
  */
